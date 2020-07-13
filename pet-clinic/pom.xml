@@ -42,4 +42,8 @@
         </plugins>
     </build>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:haydende/sfg-style-petclinic.git</developerConnection>
+    </scm>
+
 </project>
