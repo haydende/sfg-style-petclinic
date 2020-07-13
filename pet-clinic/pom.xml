@@ -43,7 +43,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:file:///D:/GitHub/Spring Framework Repo/sfg-style-petclinic.git</developerConnection>
+        <developerConnection>scm:git:file:///D:\GitHub\Spring Framework Repos\sfg-style-petclinic\.git</developerConnection>
     </scm>
 
 </project>
