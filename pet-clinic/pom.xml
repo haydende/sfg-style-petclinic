@@ -14,7 +14,7 @@
     </parent>
     <groupId>haydende</groupId>
     <artifactId>sfg-style-petclinic</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>sfg-style-petclinic</name>
     <description>Demo project for Spring Boot</description>
 
