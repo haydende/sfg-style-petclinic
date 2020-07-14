@@ -43,8 +43,9 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:file:///D:\GitHub\Spring Framework Repos\sfg-style-petclinic\.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <!--<developerConnection>scm:git:file:///D:\GitHub\Spring Framework Repos\sfg-style-petclinic\.git</developerConnection>-->
+        <developerConnection>scm:git:git@github.com:haydende/sfg-style-petclinic.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
 </project>
