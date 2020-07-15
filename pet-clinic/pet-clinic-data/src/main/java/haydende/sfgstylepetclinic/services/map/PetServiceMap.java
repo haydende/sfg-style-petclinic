@@ -1,12 +1,14 @@
 package haydende.sfgstylepetclinic.services.map;
 
 import haydende.sfgstylepetclinic.model.Pet;
-import haydende.sfgstylepetclinic.services.CrudService;
+import haydende.sfgstylepetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class PetMapService extends AbstractMapService<Pet, Long>
-                           implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMap extends AbstractServiceMap<Pet, Long>
+                           implements PetService {
 
     @Override
     public Set<Pet> findAll() {

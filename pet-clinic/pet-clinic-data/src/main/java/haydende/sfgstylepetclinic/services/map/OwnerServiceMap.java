@@ -1,12 +1,14 @@
 package haydende.sfgstylepetclinic.services.map;
 
 import haydende.sfgstylepetclinic.model.Owner;
-import haydende.sfgstylepetclinic.services.CrudService;
+import haydende.sfgstylepetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class OwnerMapService extends AbstractMapService<Owner, Long>
-                             implements CrudService<Owner, Long> {
+@Service
+public class OwnerServiceMap extends AbstractServiceMap<Owner, Long>
+                             implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -34,4 +36,8 @@ public class OwnerMapService extends AbstractMapService<Owner, Long>
     }
 
 
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
+    }
 }
