@@ -5,6 +5,7 @@ import haydende.sfgstylepetclinic.model.Pet;
 import haydende.sfgstylepetclinic.model.PetType;
 import haydende.sfgstylepetclinic.model.Vet;
 import haydende.sfgstylepetclinic.services.OwnerService;
+import haydende.sfgstylepetclinic.services.PetService;
 import haydende.sfgstylepetclinic.services.PetTypeService;
 import haydende.sfgstylepetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
@@ -18,12 +19,14 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final PetService petService;
 
     public DataLoader(OwnerService ownerService, VetService vetService,
-                      PetTypeService petTypeService) {
+                      PetTypeService petTypeService, PetService petService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.petService = petService;
     }
 
     @Override
@@ -31,11 +34,11 @@ public class DataLoader implements CommandLineRunner {
 
         PetType dog = new PetType();
         dog.setName("Dog");
-        dog = petTypeService.save(dog);
+        PetType savedDog = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("Cat");
-        cat = petTypeService.save(cat);
+        PetType savedCat = petTypeService.save(cat);
 
         System.out.println("Loaded PetTypes...");
 
@@ -48,9 +51,10 @@ public class DataLoader implements CommandLineRunner {
 
         Pet owner1Pet = new Pet();
         owner1Pet.setName("Owner1Dog");
-        owner1Pet.setPetType(dog);
+        owner1Pet.setPetType(savedDog);
         owner1Pet.setOwner(owner1);
         owner1Pet.setBirthDate(LocalDate.of(1999, 07, 12));
+        // petService.save(owner1Pet);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
@@ -62,9 +66,10 @@ public class DataLoader implements CommandLineRunner {
 
         Pet owner2Pet = new Pet();
         owner2Pet.setName("Owner2Cat");
-        owner2Pet.setPetType(cat);
+        owner2Pet.setPetType(savedCat);
         owner2Pet.setOwner(owner2);
         owner2Pet.setBirthDate(LocalDate.of(2005, 12, 16));
+        // petService.save(owner2Pet);
         ownerService.save(owner2);
 
         System.out.println("Loaded the owners...");
