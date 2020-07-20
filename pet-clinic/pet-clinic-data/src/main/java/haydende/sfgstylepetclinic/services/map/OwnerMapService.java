@@ -2,6 +2,7 @@ package haydende.sfgstylepetclinic.services.map;
 
 import haydende.sfgstylepetclinic.model.Owner;
 import haydende.sfgstylepetclinic.model.Pet;
+import haydende.sfgstylepetclinic.model.PetType;
 import haydende.sfgstylepetclinic.services.OwnerService;
 import haydende.sfgstylepetclinic.services.PetService;
 import haydende.sfgstylepetclinic.services.PetTypeService;
@@ -41,17 +42,20 @@ public class OwnerMapService extends AbstractMapService<Owner, Long>
                             // if the PetType instance hasn't been saved yet,
                             // save it and then add the returned version to
                             // the pet instance (so it will have an ID)
-                            pet.setPetType(petTypeService.save(pet.getPetType()));
+                            PetType savedType = petTypeService.save(pet.getPetType());
+
+                            System.out.println("PetType being saved: " + savedType);
+                            pet.setPetType(petTypeService.save(savedType));
+                        }
+                        if (pet.getId() == null) {
+                            // stored returned instance of Pet for later use
+                            Pet savedPet = petService.save(pet);
+                            System.out.println("Pet being saved: " + savedPet);
+                            // get Id value from savedPet and provide it to pet
+                            pet.setId(savedPet.getId());
                         }
                     } else {
                         throw new RuntimeException("Pet Type is required");
-                    }
-
-                    if (pet.getId() == null) {
-                        // stored returned instance of Pet for later use
-                        Pet savedPet = petService.save(pet);
-                        // get Id value from savedPet and provide it to pet
-                        pet.setId(savedPet.getId());
                     }
                 });
             }
@@ -70,7 +74,6 @@ public class OwnerMapService extends AbstractMapService<Owner, Long>
     public void delete(Owner object) {
         super.delete(object);
     }
-
 
     @Override
     public Owner findByLastName(String lastName) {

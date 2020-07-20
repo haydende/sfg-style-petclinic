@@ -11,26 +11,27 @@ public class SpecialityMapService extends AbstractMapService<Speciality, Long>
                                   implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
-        return null;
-    }
-
-    @Override
-    public void deleteById(Long id) {
-
-    }
-
-    @Override
-    public void delete(Speciality object) {
-
-    }
-
-    @Override
-    public Speciality save(Speciality object) {
-        return null;
+        return super.findAll();
     }
 
     @Override
     public Speciality findById(Long id) {
-        return null;
+        return super.findById(id);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        super.deleteById(id);
+    }
+
+    @Override
+    public void delete(Speciality object) {
+        super.delete(object);
+    }
+
+    @Override
+    public Speciality save(Speciality object) {
+        return super.save(object);
+    }
+
 }
