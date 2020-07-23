@@ -2,11 +2,13 @@ package haydende.sfgstylepetclinic.services.map;
 
 import haydende.sfgstylepetclinic.model.Speciality;
 import haydende.sfgstylepetclinic.services.SpecialityService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class SpecialityMapService extends AbstractMapService<Speciality, Long>
                                   implements SpecialityService {
     @Override
