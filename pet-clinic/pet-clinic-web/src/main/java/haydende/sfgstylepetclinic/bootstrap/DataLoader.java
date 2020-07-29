@@ -2,11 +2,13 @@ package haydende.sfgstylepetclinic.bootstrap;
 
 import haydende.sfgstylepetclinic.model.*;
 import haydende.sfgstylepetclinic.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -117,5 +119,16 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet3);
 
         System.out.println("Loaded the vets...");
+
+        Owner owner3 = Owner.builder()
+            .id(4L)
+            .firstName("Hayden")
+            .lastName("Eastwell")
+            .build();
+
+        ownerService.save(owner3);
+
+        log.debug("Saved the last owner");
+
     }
 }

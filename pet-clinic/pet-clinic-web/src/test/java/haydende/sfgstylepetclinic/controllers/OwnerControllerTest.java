@@ -57,7 +57,7 @@ class OwnerControllerTest {
 
     @Test
     void findOwners() throws Exception {
-        String viewName = "notimplemented";
+        String viewName = "owners/findowners";
         mockMvc.perform(get("/owners/find"))
             .andExpect(status().isOk())
             .andExpect(view().name(viewName));
